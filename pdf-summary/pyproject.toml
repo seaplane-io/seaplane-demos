@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pdf-summary"
+version = "0.0.1"
+description = ""
+authors = []
+
+[tool.seaplane]
+main = "main.py"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+seaplane = "^0.3.69"
+PyPDF2 = "*"
+requests = "2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
