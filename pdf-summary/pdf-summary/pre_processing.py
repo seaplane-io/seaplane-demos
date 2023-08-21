@@ -38,7 +38,7 @@ def pre_processing(data):
         prompt = "write a summary of the following text. Make sure to maintain the scientific tone in the paper:  " + pdf_text
             
         # pass the required information to the next step
-        return(json.dumps({
+        return{
                 'url' : str(url),
                 'prompt' : prompt
-                }))
+                }

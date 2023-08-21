@@ -1,10 +1,8 @@
-from seaplane import task 
+from seaplane import task
 import json
 
 @task(type='inference', id='pdf-inferencer', model="gpt-3.5")
 def inferencing(data, model):
-    # convert data to json
-    data = json.loads(data)
 
     # get the URL and prompt from the input message
     prompt = data['prompt']
