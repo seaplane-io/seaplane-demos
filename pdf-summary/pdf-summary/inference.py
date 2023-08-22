@@ -1,12 +1,12 @@
 from seaplane import task
 import json
 
-@task(type='inference', id='pdf-inferencer', model="gpt-3.5")
-def inferencing(data, model):
 
+@task(type="inference", id="pdf-inferencer", model="gpt-3.5")
+def inferencing(data, model):
     # get the URL and prompt from the input message
-    prompt = data['prompt']
-    url = data['url']
+    prompt = data["prompt"]
+    url = data["url"]
 
     # construct the model parameters including the prompt from the prev step
     params = {
@@ -19,7 +19,7 @@ def inferencing(data, model):
     result = model(params)
 
     # return the inferenced result plus input and parameters
-    result['url'] = url
-    result['prompt'] = prompt
+    result["url"] = url
+    result["prompt"] = prompt
 
-    return(json.dumps(result))
+    return json.dumps(result)
