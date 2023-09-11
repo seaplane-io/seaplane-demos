@@ -1,5 +1,4 @@
 from seaplane import task
-import json
 
 # you can get this information from the flightdeck
 sql_access = {
