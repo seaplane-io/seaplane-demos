@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "processor"
+version = "0.0.1"
+description = ""
+authors = []
+
+[tool.seaplane]
+main = "main.py"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+seaplane = "^0.3.91"
+langchain = "0.0.195"
+requests = "*"
+beautifulsoup4 = "*"
+lxml='*'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
