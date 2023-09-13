@@ -3,9 +3,10 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from seaplane.model import Vector
 from seaplane.vector import vector_store
 import uuid
-from seaplane.integrations.langchain import seaplane_embeddings
 import requests
 from bs4 import BeautifulSoup
+import os
+from langchain.embeddings import OpenAIEmbeddings
 
 
 @task(id="documentation-processors", type="compute")
@@ -23,7 +24,7 @@ def process_docs(data):
     # This example uses OpenAI embeddings which have a dimention of 1536. Update
     # the dimensions if you use other embeddings. For example, the Seaplane
     # embeddigns have a dimension of 768
-    index_name = "fokke-docsaurus-test"
+    index_name = "<YOUR-INDEX>"
     vector_store.recreate_index(index_name, 1536)
 
     # Get the URL of the sitemap.xml from the API request
@@ -35,6 +36,9 @@ def process_docs(data):
 
     # Parse the XML data using BeautifulSoup
     soup = BeautifulSoup(xml_data, "xml")
+
+    # create openAI embeddign
+    embedding = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
 
     # Find all the 'loc' elements
     pages = soup.find_all("loc")
@@ -66,9 +70,7 @@ def process_docs(data):
                 texts[idx].metadata["url"] = str(url)
 
             # crete embeddings
-            vectors = seaplane_embeddings.embed_documents(
-                [page.page_content for page in texts]
-            )
+            vectors = embedding.embed_documents([page.page_content for page in texts])
 
             # construct vectors
             vectors = [
@@ -86,4 +88,4 @@ def process_docs(data):
             # insert into vector store.
             vector_store.insert(index_name, vectors)
 
-        return "done"
+    return "done"
