@@ -13,4 +13,4 @@ To learn more about the Seaplane platform head over to our [documentation pages]
   ([code](https://github.com/seaplane-io/seaplane-demos/tree/main/pdf-summary),
   [tutorial](https://developers.seaplane.io/tutorials/pdf-summary))
 - Notion Chatbot - ([code](https://github.com/seaplane-io/seaplane-demos/tree/main/notion-chatbot), [tutorial](https://developers.seaplane.io/tutorials/chatbot))
-- Docusaurus Chatbot - [code](https://github.com/seaplane-io/seaplane-demos/tree/main/docusaurus-chatbot)https://github.com/seaplane-io/seaplane-demos/tree/main/docusaurus-chatbot
+- Docusaurus Chatbot - [code](https://github.com/seaplane-io/seaplane-demos/tree/main/docusaurus-chatbot)
