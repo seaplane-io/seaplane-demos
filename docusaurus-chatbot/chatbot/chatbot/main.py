@@ -31,7 +31,7 @@ def chat_task(data, model):
     # find 2 most relevant docs, you can update this number to include more
     # context keep in mind more context takes more tokens i.e higher costs.
     index_name = "<YOUR-INDEX-NAME>"
-    vectors = vector_store.knn_search("index_name", Vector(vector_question), 2)
+    vectors = vector_store.knn_search(index_name, Vector(vector_question), 2)
 
     # concat the context into a single string
     context = " ".join([vector.payload["page_content"] for vector in vectors])

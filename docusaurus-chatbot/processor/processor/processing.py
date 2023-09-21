@@ -7,6 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 from langchain.embeddings import OpenAIEmbeddings
+import logging
 
 
 @task(id="documentation-processors", type="compute")
@@ -59,8 +60,12 @@ def process_docs(data):
                 "div", {"class": "theme-doc-markdown markdown"}
             )
 
-            # select the main content div
-            content = selected_divs[0].text
+            # skip pages without main content div
+            try:
+                # select the main content div
+                content = selected_divs[0].text
+            except IndexError:
+                logging.error(f"skipping: {url}")
 
             # create text splitter
             texts = text_splitter.create_documents([content])
