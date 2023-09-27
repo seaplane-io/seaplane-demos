@@ -12,7 +12,7 @@ from helper_files import get_all_pages, get_page, get_page_content
 
 @task(id="notion-processor", type="compute")
 def process_notion(data):
-    # create vector store if it does not yet exists 768 dimenions for seaplane embeddings
+    # create vector store if it does not yet exists 768 dimensions for seaplane embeddings
     vector_store.create_index("notion-search", 768)
 
     # initiate Langhcain text splitter
