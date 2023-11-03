@@ -8,8 +8,8 @@ authors = []
 main = "main.py"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-seaplane = "^0.3.69"
+python = ">=3.10,<3.12"
+seaplane = "^0.4.0"
 
 [build-system]
 requires = ["poetry-core"]
