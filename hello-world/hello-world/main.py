@@ -1,12 +1,5 @@
-from seaplane import task, app, config, start
+from seaplane import task, app, start
 import json
-
-# Configure secret credentials
-
-api_keys = {"SEAPLANE_API_KEY": "<YOUR-API-KEY>"}
-
-config.set_api_keys(api_keys)
-
 
 # World task
 @task(type="compute", id="world-task")

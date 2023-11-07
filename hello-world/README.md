@@ -6,7 +6,7 @@ takes a name (string) and returns a string `Hello World <NAME>`.
 To deploy follow these steps. We assume you have Seaplane installed on your
 machine. You can do so by running `pip3 install seaplane`
 
-- Open `main.py` and replace the Seaplane API key placeholders with your keys.
+- Open `.env` and replace the "<YOUR-SEAPLANE-API-KEY>" placeholder with your key.
 - In the main `hello-world` directory, run `poetry install`.
 - Then run `seaplane deploy` to deploy the app.
 
